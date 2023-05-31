@@ -1,0 +1,15 @@
+{{ block title }}Your Decision{{ endblock }}
+{{ block content }}
+    <p>
+        You are <strong>Participant 1 (Buyer)</strong>.
+        Please decide the price p.
+        you will buy the bicycle which you get utility {{C.BICYCLE}}. 
+    </p>
+
+    {{ formfields }}
+
+    {{ next_button }}
+
+    {{ include C.INSTRUCTIONS_TEMPLATE }}
+
+{{ endblock }}

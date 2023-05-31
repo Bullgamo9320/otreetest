@@ -1,0 +1,129 @@
+{{ block title }}
+Trade
+{{ endblock }}
+{{ block content }}
+
+<p id="news" style="color: green"></p>
+
+<table class="table">
+    <tr>
+        <td>Your role</td>
+        <th>
+            {{ if player.is_buyer }}buyer{{ else }}seller{{ endif }}
+        </th>
+    </tr>
+    <tr>
+        <td>
+            Your break-even point
+            {{ if player.is_buyer }}
+                (you should buy for less than)
+            {{ else }}
+                (you should sell for more than)
+            {{ endif }}
+        </td>
+        <th>
+            {{ player.break_even_point }}
+        </th>
+    </tr>
+    <tr>
+        <td>Items in your possession</td>
+        <th id="num_items"></th>
+    </tr>
+    <tr>
+        <td>Your current offer</td>
+        <th id="current_offer"></th>
+    </tr>
+    <tr>
+        <td>Profits</td>
+        <th id="payoff"></th>
+    </tr>
+</table>
+
+<!-- Make offerのボタンを作る -->
+<input type="number" id="my_offer">
+<button type="button" onclick="sendOffer()" id="btn-offer">Make offer</button>
+<br><br>
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+            <h4>Bids</h4>
+            <table id="bids_table"></table>
+        </div>
+        <div class="col-sm">
+            <h4>Asks</h4>
+            <table id="asks_table"></table>
+        </div>
+    </div>
+</div>
+
+<br><br>
+{{ include 'double_auction/chart.html' }}
+
+
+<script>
+
+    let bids_table = document.getElementById('bids_table');
+    let asks_table = document.getElementById('asks_table');
+    let is_buyer = js_vars.is_buyer;
+    //(問題)otreeのjs_varsの機能を使ってjavascriptにid_in_groupを取得する
+    let my_id = ;
+    let news_div = document.getElementById('news');
+    let btnOffer = document.getElementById('btn-offer');
+    let my_offer = document.getElementById('my_offer');
+
+    function showNews(msg) {
+        news_div.innerText = msg;
+        setTimeout(function () {
+            news_div.innerText = ''
+        }, 10000)
+    }
+
+    function cu(amount) {
+        return `${amount} points`;
+    }
+    
+    //liveSendで送ったあと、live_methodでデータが返ってくるので、それの処理
+    function liveRecv(data) {
+        console.log(data)
+        // javascript destructuring assignment
+        let {bids, asks, highcharts_series, num_items, current_offer, payoff, news} = data;// javascriptのlet 文はブロックスコープのローカル変数を宣言します。任意で値を代入して初期化できます。
+        //news変数から、画面にtransactionの結果を文章で説明する。
+        if (news) {
+            let {buyer, seller, price} = news;
+            if (buyer === my_id) {
+                showNews(`You bought from player ${seller} for ${cu(price)}`);
+            } else if (seller === my_id) {
+                showNews(`You sold to player ${buyer} for ${cu(price)}`);
+            }
+        }
+        //HTMLで表示させる変数を更新する。
+        document.getElementById('num_items').innerText = num_items;
+        document.getElementById('current_offer').innerText = cu(current_offer);
+        // (問題)payoff 変数を格納する。ただしもとがcurrencyFieldなので、otreeのcu関数を使って値を表示用に戻す。
+        document.getElementById('payoff').innerText = ;
+        if (!is_buyer && num_items === 0) {
+            btnOffer.disabled = true;
+        }
+        bids_table.innerHTML = bids.map(e => `<tr><td>${cu(e)}</td></tr>`).join('');
+        asks_table.innerHTML = asks.map(e => `<tr><td>${cu(e)}</td></tr>`).join('');
+        redrawChart(highcharts_series);
+    }
+
+    //Make offerのボタンを押したときに動くsendOffer()
+    //ここでhtml上で入力したデータをサーバーに送るliveSend関数を起動する
+    function sendOffer() {
+        liveSend({'offer': my_offer.value})
+    }
+
+    my_offer.addEventListener("keydown", function (event) {
+        if (event.key === "Enter") {
+            sendOffer();
+        }
+    });
+
+    document.addEventListener('DOMContentLoaded', (event) => {
+        liveSend({});
+    });
+</script>
+
+{{ endblock }}

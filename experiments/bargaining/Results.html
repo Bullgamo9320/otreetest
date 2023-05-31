@@ -1,0 +1,11 @@
+{{ block title }}Results{{ endblock }}
+{{ block content }}
+    <p>
+
+        Buyer decided to pay <strong>{{ group.price }}</strong> and Seller <strong>{{ group.is_accept }}</strong> the offer.
+
+        You earn {{player.payoff}}.
+        {{ next_button }}
+    </p>
+    {{ include C.INSTRUCTIONS_TEMPLATE }}
+{{ endblock }}
