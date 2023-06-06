@@ -1,0 +1,13 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+{% endblock %}
+
+{% block content %}
+<img src="{% static 'taskB.png' %}",width=800px, height=400px/>
+{% formfield player.taskB_2 label="「現在取り組んでいる事を中断して、課題Bに取り組むこと」の対価として適切だと感じる報酬額を入力して下さい" %}
+   
+    {% next_button %}
+
+{% endblock %}

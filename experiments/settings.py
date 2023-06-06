@@ -7,6 +7,25 @@ SESSION_CONFIGS = [
         num_demo_participants=1,
         app_sequence=['survey', 'payment_info'],
     ),
+    dict(
+        name='auction',
+        display_name='auction',
+        num_demo_participants=3,
+        app_sequence=['auction', 'payment_info'],
+    ),
+    dict(
+        name='motivation_experiment',
+        display_name='motivation_experiment',
+        num_demo_participants=3,
+        app_sequence=['motivation_experiment', 'payment_info'],
+    ),
+    dict(
+     name="my_public_goods",
+     display_name="My Public Goods",
+     num_demo_participants=4,
+     app_sequence=["my_public_goods"],
+    ),
+
 ]
 
 # if you set a property in SESSION_CONFIG_DEFAULTS, it will be inherited by all configs

@@ -1,0 +1,12 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+{% if player.randomB1 >= player.taskB_1 %}<p>rは{{player.randomB1}}でした。課題Bに移ります</p>{% endif %}
+{% if player.taskB_1 > player.randomB1 %}<p>rは{{player.randomB1}}でした。引き続きLegoに取り組んで下さい</p>{% endif %}
+{% endblock %}
+
+{% block content %}  
+    {% next_button %}
+
+{% endblock %}

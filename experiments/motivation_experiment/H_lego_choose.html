@@ -1,0 +1,22 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+<p>次の課題Bを始める前に小休憩を設けます</p>
+
+{% endblock %}
+
+{% block content %}
+<p>今から小休憩を設けます。</p>
+<p>足元の段ボールの中にLegoブロックを用意したので、この休憩中に遊んで下さい。</p>
+<p>次の3つのうち、どれを作りたいですか？　作りたい番号を下のプルダウンメニューから1つ選択し、NEXTボタンを押しててください。次の画面でLEGOの作り方が表示されます。</p>
+
+    <img src="{% static '31079_1_01.png' %}", width=30%/>
+    <img src="{% static '31079_2_01.png' %}", width=30%/>
+    <img src="{% static '31079_3_01.png' %}", width=30%/>
+    <p></p>
+    {% formfield player.Lego_best label="作りたいLego作品を選んで下さい" %}
+
+    {% next_button %}
+
+{% endblock %}

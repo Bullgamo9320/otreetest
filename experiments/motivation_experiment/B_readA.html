@@ -1,0 +1,14 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    <p>お手元の課題Aを読んで下さい。</p>
+{% endblock %}
+
+{% block content %}
+    <p>課題Aを読み終わったらNextボタンを押して下さい。</p>    
+
+    
+    {% next_button %}
+
+{% endblock %}

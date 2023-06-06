@@ -1,0 +1,15 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    <p>課題Aを行う場合どのくらいの報酬額が欲しいですか？</p>
+    
+{% endblock %}
+
+{% block content %}
+    <p>ここでの報酬額とは、実際に課題Aに取り組んでも良いと感じる最低額のことです。</p>
+    {% formfield player.taskA_b label="報酬額" %}
+   
+    {% next_button %}
+
+{% endblock %}

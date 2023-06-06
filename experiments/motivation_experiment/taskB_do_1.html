@@ -1,0 +1,30 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+  
+
+
+{% endblock %}
+
+{% block content %}
+<p>課題B入力画面</p> 
+{% formfield player.taskB1_01 label="1~18個目" %}
+{% formfield player.taskB1_02 label="19~36個目"%}
+{% formfield player.taskB1_03 label="37~54個目"%}
+{% formfield player.taskB1_04 label="55~72個目"%}
+{% formfield player.taskB1_05 label="73~90個目"%}
+{% formfield player.taskB1_06 label="91~108個目"%}
+{% formfield player.taskB1_07 label="109~126個目"%}
+{% formfield player.taskB1_08 label="127~144個目"%}
+{% formfield player.taskB1_09 label="145~162個目"%}
+{% formfield player.taskB1_10 label="162~180個目"%}
+{% formfield player.taskB1_11 label="181~198個目"%}
+{% formfield player.taskB1_12 label="199~216個目"%}
+
+
+    
+  
+    {% next_button %}
+
+{% endblock %}

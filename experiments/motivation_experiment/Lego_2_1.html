@@ -1,0 +1,84 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+
+    {% block title %}
+    Lego説明書3
+    {% endblock %}
+
+
+
+    {% block content %}
+
+    {% if player.Lego_best == 1 %}
+
+        <p>選択肢① p.1</p>
+
+        <p></p>
+        <img src="{% static '31079_1_18.png' %}", width=65%/>
+        <p></p>
+        <img src="{% static '31079_1_19.png' %}", width=65%/>
+        <p></p>
+        <img src="{% static '31079_1_20.png' %}", width=65%/>
+        <p></p>
+        <img src="{% static '31079_1_21.png' %}", width=65%/>
+        <p></p>
+        <img src="{% static '31079_1_22.png' %}", width=65%/>
+        <p></p>
+        <img src="{% static '31079_1_23.png' %}", width=65%/>
+        <p></p>
+        <img src="{% static '31079_1_24.png' %}", width=65%/>
+        <p></p>
+
+
+    {% endif %}
+
+
+
+
+
+
+    {% if player.Lego_best == 2 %}
+
+        <p>選択肢② p.1</p>
+
+        <p></p>
+        <img src="{% static '31079_2_12.png' %}", width=65%/>
+        <p></p>
+        <img src="{% static '31079_2_13.png' %}", width=65%/>
+        <p></p>
+        <img src="{% static '31079_2_14.png' %}", width=65%/>
+        <p></p>
+        <img src="{% static '31079_2_15.png' %}", width=65%/>
+        <p></p>
+
+
+
+
+    {% endif %}
+
+
+
+
+
+
+    {% if player.Lego_best == 3 %}
+
+        <p>選択肢③ p.1</p>
+
+        <p></p>
+        <img src="{% static '31079_3_12.png' %}", width=65%/>
+        <p></p>
+        <img src="{% static '31079_3_13.png' %}", width=65%/>
+        <p></p>
+        <img src="{% static '31079_3_14.png' %}", width=65%/>
+        <p></p>
+        <img src="{% static '31079_3_15.png' %}", width=65%/>
+        <p></p>
+       
+
+    {% endif %}
+
+    {{ next_button }}
+
+    {% endblock %}

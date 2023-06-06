@@ -1,0 +1,97 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+
+    {% block title %}
+    Lego説明書6
+    {% endblock %}
+
+
+
+    {% block content %}
+
+    {% if player.Lego_best == 1 %}
+
+        <p>選択肢① p.1</p>
+
+        <p></p>
+        <img src="{% static '31079_1_39.png' %}", width=65%/>
+        <p></p>
+        <img src="{% static '31079_1_39.png' %}", width=65%/>
+        <p></p>
+        <img src="{% static '31079_1_40.png' %}", width=65%/>
+        <p></p>
+        <img src="{% static '31079_1_41.png' %}", width=65%/>
+        <p></p>
+        <img src="{% static '31079_1_42.png' %}", width=65%/>
+        <p></p>
+        <img src="{% static '31079_1_43.png' %}", width=65%/>
+        <p></p>
+        <img src="{% static '31079_1_44.png' %}", width=65%/>
+        <p></p>
+        <img src="{% static '31079_1_45.png' %}", width=65%/>
+        <p></p>
+        <img src="{% static '31079_1_46.png' %}", width=65%/>
+        <p></p>
+        <img src="{% static '31079_1_47.png' %}", width=65%/>
+        <p></p>
+
+    {% endif %}
+
+
+
+
+
+
+    {% if player.Lego_best == 2 %}
+
+        <p>選択肢② p.1</p>
+
+        <p></p>
+        <img src="{% static '31079_2_24.png' %}", width=65%/>
+        <p></p>
+        <img src="{% static '31079_2_25.png' %}", width=65%/>
+        <p></p>
+        <img src="{% static '31079_2_26.png' %}", width=65%/>
+        <p></p>
+        <img src="{% static '31079_2_27.png' %}", width=65%/>
+        <p></p>
+        <img src="{% static '31079_2_28.png' %}", width=65%/>
+        <p></p>
+        <img src="{% static '31079_2_29.png' %}", width=65%/>
+        <p></p>
+
+
+
+    {% endif %}
+
+
+
+
+
+
+    {% if player.Lego_best == 3 %}
+
+        <p>選択肢③ p.1</p>
+
+        <p></p>
+        <img src="{% static '31079_3_24.png' %}", width=65%/>
+        <p></p>
+        <img src="{% static '31079_3_25.png' %}", width=65%/>
+        <p></p>
+        <img src="{% static '31079_3_26.png' %}", width=65%/>
+        <p></p>
+        <img src="{% static '31079_3_27.png' %}", width=65%/>
+        <p></p>
+        <img src="{% static '31079_3_28.png' %}", width=65%/>
+        <p></p>
+        <img src="{% static '31079_3_29.png' %}", width=65%/>
+        <p></p>
+
+       
+
+    {% endif %}
+
+    {{ next_button }}
+
+    {% endblock %}

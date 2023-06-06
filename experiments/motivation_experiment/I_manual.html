@@ -1,0 +1,20 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    <p>Legoの説明書画面の見方</p>
+{% endblock %}
+
+{% block content %}
+<p>下記が本実験におけるLegoの説明書の表示方法なので読んでください。</p>
+<img src="{% static 'Lego_operation.png' %}" width=90%/>
+<p></p>
+<p></p>
+<p></p>
+<p>注意点:</p>
+<p>本実験は基本的には質問は禁止です。</p>
+<p>ただし、Legoのパーツが足りないと判断した場合は挙手をして下さい。</p>
+<p>実験者が伺います。</p>
+    {% next_button %}
+
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+{% endblock %}
+
+{% block content %}
+{% formfield player.taskA_a label="お疲れ様でした。実際に取り組んでみて、改めて課題Aを行う場合どのくらいの報酬額が欲しいですか？" %}
+   
+    {% next_button %}
+
+{% endblock %}

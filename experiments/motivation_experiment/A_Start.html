@@ -1,0 +1,17 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    <p>今から実験を開始します。</p>
+    
+{% endblock %}
+
+{% block content %}
+    <p>基本的な使い方は以下の通りです。</p>
+    <p>本実験はこの世に画面上に指示が出ます。</p>
+    <img src="{% static 'A_start.png' %}" width=90%/>
+
+
+    {% next_button %}
+
+{% endblock %}
