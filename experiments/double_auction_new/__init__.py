@@ -21,6 +21,7 @@ class Subsession(BaseSubsession):
     pass
 
 #ここで売る人と買う人に分ける
+'''
 def creating_session(subsession: Subsession):
     players = subsession.get_players()
     for p in players:
@@ -37,6 +38,7 @@ def creating_session(subsession: Subsession):
                 C.PRODUCTION_COSTS_MIN, C.PRODUCTION_COSTS_MAX
             )
             p.current_offer = C.VALUATION_MAX + 1
+'''
 
 
 class Group(BaseGroup):
@@ -44,8 +46,8 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    is_buyer = models.BooleanField()
-    current_offer = models.CurrencyField()
+    #is_buyer = models.BooleanField()
+    #current_offer = models.CurrencyField()
     break_even_point = models.CurrencyField()
     num_items = models.IntegerField()
 

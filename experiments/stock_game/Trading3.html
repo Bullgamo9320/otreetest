@@ -1,0 +1,31 @@
+{{ block title }}
+Trade
+{{ endblock }}
+{{ block content }}
+
+    <button id="buy-button">Buy</button>
+    <button id="sell-button">Sell</button>
+
+    <p id="cash">Cash: {{ player.cash }}</p>
+    <p id="stock">Stock: {{ player.stock }}</p>
+    <p id="stock_price">Stock Price: {{ player.stock_price }}</p>
+    <p id="total_asset">Total Asset: {{ player.total_assets() }}</p>
+
+    <script>
+        document.getElementById('buy-button').onclick = function() {
+            oTree.liveSend({ action: 'buy' });
+        };
+
+        document.getElementById('sell-button').onclick = function() {
+            oTree.liveSend({ action: 'sell' });
+        };
+
+        oTree.liveRecv(function(data) {
+            document.getElementById('cash').innerText = "Cash: " + cash;
+            document.getElementById('stock').innerText = "Stock: " + stock;
+            document.getElementById('stock_price').innerText = "Stock Price: " + stock_price;
+            document.getElementById('total_asset').innerText = "Total Asset: " + otal_assets();
+        });
+    </script>
+
+{{ endblock }}

@@ -21,15 +21,19 @@ class Subsession(BaseSubsession):
 class Group(BaseGroup):
     total_contribution = models.CurrencyField()
     individual_share = models.CurrencyField()
+    
 
 
 class Player(BasePlayer):
+    
     contribution = models.CurrencyField(
         min=0,
         max=C.ENDOWMENT,
         label="公共財にいくら投資しますか？"
     )
+    
 
+#FUNCTIONS
 def set_payoffs(group):
     players = group.get_players()
     contributions = [p.contribution for p in players]
@@ -41,8 +45,8 @@ def set_payoffs(group):
         player.payoff = C.ENDOWMENT - player.contribution + group.individual_share
 
 
-
 # PAGES
+
 class MyPage(Page):
     form_model = 'player'
     form_fields = ["contribution"]
@@ -58,3 +62,4 @@ class Results(Page):
 
 
 page_sequence = [MyPage, ResultsWaitPage, Results]
+
